@@ -1,5 +1,7 @@
 package dict
 
+// not a safe way
+// improve later
 type Dict struct {
 	dict map[string]string
 }
