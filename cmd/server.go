@@ -2,10 +2,11 @@ package cmd
 
 import (
 	"fmt"
-	"github.com/jaronnie/julenkv"
-	"github.com/tidwall/redcon"
 	"log"
 	"strings"
+
+	"github.com/jaronnie/julenkv"
+	"github.com/tidwall/redcon"
 )
 
 type ExecCmdFunc func(*julenkv.JulenKv, []string) (interface{}, error)
@@ -18,10 +19,9 @@ func addExecCommand(cmd string, cmdFunc ExecCmdFunc) {
 
 type Server struct {
 	server *redcon.Server
-	db *julenkv.JulenKv
+	db     *julenkv.JulenKv
 	closed bool
 }
-
 
 func NewServer(config julenkv.Config) (*Server, error) {
 	db, err := julenkv.Open(config)
@@ -58,7 +58,7 @@ func (s *Server) Stop() {
 		log.Printf("close redcon err: %+v\n", err)
 	}
 	if err := s.db.Close(); err != nil {
-		log.Printf("close rosedb err: %+v\n", err)
+		log.Printf("close julenkv err: %+v\n", err)
 	}
 }
 

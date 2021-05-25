@@ -1,14 +1,12 @@
 package cmd
 
 import (
-	"errors"
 	"fmt"
+
 	"github.com/jaronnie/julenkv"
 	"github.com/tidwall/redcon"
 )
 
-// ErrSyntaxIncorrect incorrect err
-var ErrSyntaxIncorrect = errors.New("syntax err")
 var okResult = redcon.SimpleString("OK")
 
 func newWrongNumOfArgsError(cmd string) error {
