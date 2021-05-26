@@ -42,13 +42,13 @@ import (
 
 func main() {
 	conn, _ := julenkv.Connect("0.0.0.0:5200")
-	reply, _ := julenkv.Do(conn, "get", "hello")
+	julenkv.Do(conn, "set", "nj", "jay")
+	reply, _ := julenkv.Do(conn, "get", "nj")
 	if _, ok := reply.(string); ok {
 		value := reply.(string)
 		fmt.Println(value)
 	}
 }
-
 ```
 
 ## Docker
