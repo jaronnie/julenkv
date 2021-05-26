@@ -2,6 +2,7 @@ package cmd
 
 import (
 	"fmt"
+	"github.com/jaronnie/julenkv/config"
 	"log"
 	"strings"
 
@@ -23,7 +24,7 @@ type Server struct {
 	closed bool
 }
 
-func NewServer(config julenkv.Config) (*Server, error) {
+func NewServer(config config.Config) (*Server, error) {
 	db, err := julenkv.Open(config)
 	if err != nil {
 		return nil, err
