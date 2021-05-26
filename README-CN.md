@@ -11,14 +11,13 @@ julenkv模仿redis的实现，只是为了学习 redis。
 ### server 端
 
 ```shell
-cd github.com/jaronnie/julenkv/cmd/server
 go run main.go
 ```
 
 ### client 端
 
 ```shell
-cd github.com/jaronnie/julenkv/cmd/client
+cd client
 go run main.go set hello world
 
 2021/05/25 23:13:54 Reply: OK

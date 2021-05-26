@@ -13,14 +13,13 @@ Only used for learning, never used in a production environment.
 ### server
 
 ```shell
-cd github.com/jaronnie/julenkv/cmd/server
 go run main.go
 ```
 
 ### client
 
 ```shell
-cd github.com/jaronnie/julenkv/cmd/client
+cd client
 go run main.go set hello world
 
 2021/05/25 23:13:54 Reply: OK
