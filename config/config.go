@@ -1,7 +1,7 @@
-package julenkv
+package config
 
 const (
-	DefaultAddr = "localhost:5200"
+	DefaultAddr = "0.0.0.0:5200"
 )
 
 type Config struct {
