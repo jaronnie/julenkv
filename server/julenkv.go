@@ -1,8 +1,8 @@
-package julenkv
+package server
 
 import (
 	"github.com/jaronnie/julenkv/config"
-	"github.com/jaronnie/julenkv/ds/dict"
+	"github.com/jaronnie/julenkv/server/ds/dict"
 )
 
 type JulenKv struct {

@@ -1,11 +1,11 @@
 package main
 
 import (
-	"github.com/jaronnie/julenkv/cmd"
 	"github.com/jaronnie/julenkv/config"
+	"github.com/jaronnie/julenkv/server"
 )
 
 func main() {
-	server, _ := cmd.NewServer(config.DefaultConfig())
-	server.Listen(config.DefaultAddr)
+	srv, _ := server.NewServer(config.DefaultConfig())
+	srv.Listen(config.DefaultAddr)
 }

@@ -1,8 +1,7 @@
-package cmd
+package server
 
 import (
 	"fmt"
-	"github.com/jaronnie/julenkv/server"
 
 	"github.com/tidwall/redcon"
 )
@@ -13,7 +12,7 @@ func newWrongNumOfArgsError(cmd string) error {
 	return fmt.Errorf("wrong number of arguments for '%s' command", cmd)
 }
 
-func set(db *server.JulenKv, args []string) (res interface{}, err error) {
+func set(db *JulenKv, args []string) (res interface{}, err error) {
 	if len(args) != 2 {
 		err = newWrongNumOfArgsError("set")
 		return
@@ -26,7 +25,7 @@ func set(db *server.JulenKv, args []string) (res interface{}, err error) {
 	return
 }
 
-func get(db *server.JulenKv, args []string) (res interface{}, err error) {
+func get(db *JulenKv, args []string) (res interface{}, err error) {
 	if len(args) != 1 {
 		err = newWrongNumOfArgsError("get")
 		return
@@ -40,6 +39,6 @@ func get(db *server.JulenKv, args []string) (res interface{}, err error) {
 }
 
 func init() {
-	server.AddExecCommand("set", set)
-	server.AddExecCommand("get", get)
+	AddExecCommand("set", set)
+	AddExecCommand("get", get)
 }

@@ -1,15 +1,16 @@
 package main
 
 import (
-	"github.com/jaronnie/julenkv/cmd/client/protocol"
 	"log"
 	"net"
 	"os"
+
+	"github.com/jaronnie/julenkv/client/go-julenkv/protocol"
 )
 
 func main() {
 	args := os.Args[1:]
-	conn, err := Conn("localhost:5200")
+	conn, err := Conn("0.0.0.0:5200")
 	if err != nil {
 		log.Fatal(err)
 	}
