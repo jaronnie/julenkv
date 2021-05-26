@@ -12,13 +12,12 @@ COPY . .
 
 RUN go mod tidy
 
-RUN go build -o bin/julenkv-server cmd/server/main.go
+RUN go build -o bin/julenkv-server main.go
 
-RUN go build -o bin/julenkv-cli cmd/client/main.go
+RUN go build -o bin/julenkv-cli client/main.go
 
 WORKDIR /dist
 
-# 将二进制文件从 /build 目录复制到这里
 RUN cp -r /build/bin .
 
 EXPOSE 5200

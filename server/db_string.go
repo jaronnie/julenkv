@@ -1,4 +1,4 @@
-package julenkv
+package server
 
 func (db *JulenKv) Set(key, value []byte) error {
 	if err := db.dictIdx.Set(key, value); err != nil {

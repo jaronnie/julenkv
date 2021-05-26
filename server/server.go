@@ -1,31 +1,31 @@
-package cmd
+package server
 
 import (
 	"fmt"
-	"github.com/jaronnie/julenkv/config"
 	"log"
 	"strings"
 
-	"github.com/jaronnie/julenkv"
+	"github.com/jaronnie/julenkv/config"
+
 	"github.com/tidwall/redcon"
 )
 
-type ExecCmdFunc func(*julenkv.JulenKv, []string) (interface{}, error)
+type ExecCmdFunc func(*JulenKv, []string) (interface{}, error)
 
 var ExecCmd = make(map[string]ExecCmdFunc)
 
-func addExecCommand(cmd string, cmdFunc ExecCmdFunc) {
+func AddExecCommand(cmd string, cmdFunc ExecCmdFunc) {
 	ExecCmd[strings.ToLower(cmd)] = cmdFunc
 }
 
 type Server struct {
 	server *redcon.Server
-	db     *julenkv.JulenKv
+	db     *JulenKv
 	closed bool
 }
 
 func NewServer(config config.Config) (*Server, error) {
-	db, err := julenkv.Open(config)
+	db, err := Open(config)
 	if err != nil {
 		return nil, err
 	}
