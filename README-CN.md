@@ -35,7 +35,7 @@ world
 
 ```shell
 docker build -t="jaronnie/julenkv:v0.1" .
-docker run --name=julenkv -itd -p 4200:5200 jaronnie/julenkv:v0.1
+docker run --name=julenkv -itd -p 5200:5200 jaronnie/julenkv:v0.1
 docker exec -it julenkv sh
 ./bin/julenkv-cli set hello world
 ./bin/julenkv-cli get hello 
