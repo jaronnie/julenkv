@@ -1,47 +1,41 @@
 package main
 
 import (
+	"bufio"
+	"fmt"
 	"log"
-	"net"
 	"os"
+	"strings"
 
-	"github.com/jaronnie/julenkv/client/go-julenkv/protocol"
+	julenkv "github.com/jaronnie/julenkv/client/go-julenkv"
 )
 
+
 func main() {
-	args := os.Args[1:]
-	conn, err := Conn("0.0.0.0:5200")
+	reader := bufio.NewReader(os.Stdin)
+	conn, err := julenkv.Connect("0.0.0.0:5200")
 	if err != nil {
 		log.Fatal(err)
 	}
-	defer conn.Close()
-
-	reqCmd := protocol.GetRequest(args)
-	_, err = conn.Write(reqCmd)
-	if err != nil {
-		log.Fatalf("Conn Write err: %v", err)
+	for {
+		printHeader()
+		input, _ := reader.ReadString('\n')
+		cmd := formatInput(input)
+		reply, err := julenkv.Do(conn, cmd...)
+		if err != nil {
+			fmt.Println(err)
+		} else {
+			fmt.Println(reply)
+		}
 	}
-
-	command := make([]byte, 1024)
-	n, err := conn.Read(command)
-	if err != nil {
-		log.Fatalf("Conn Read err: %v", err)
-	}
-
-	reply, err := protocol.GetReply(command[:n])
-	if err != nil {
-		log.Fatalf("protocol.GetReply err: %v", err)
-	}
-
-	log.Printf("Reply: %v", reply)
-	log.Printf("Command: %v", string(command[:n]))
-
 }
 
-func Conn(addr string) (net.Conn, error) {
-	conn, err := net.Dial("tcp", addr)
-	if err != nil {
-		return nil, err
-	}
-	return conn, nil
+func printHeader() {
+	fmt.Print("julenkv-cli> ")
+}
+
+func formatInput(cmd string) []string {
+	cmd = strings.TrimRight(cmd, "\n")
+	formatInputFields := strings.Fields(cmd)
+	return formatInputFields
 }
