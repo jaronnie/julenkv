@@ -4,9 +4,9 @@
 
 julenkv means "just learn key-value database".
 
-julenkv modeled on redis. Just to learn redis.
+julenkv models on redis. Just to learn redis.
 
-Only used for learning, never used in a production environment.
+Only use for learning, never used in a production environment.
 
 ## Usage
 
@@ -20,15 +20,11 @@ go run main.go
 
 ```shell
 cd client
-go run main.go set hello world
+go run main.go
 
-2021/05/25 23:13:54 Reply: OK
-2021/05/25 23:13:54 Command: +OK
-
-go run main.go get hello
-
-2021/05/25 23:14:11 Reply: world
-2021/05/25 23:14:11 Command: $5
+julenkv-cli> set hello world
+ok
+julenkv-cli> get hello
 world
 ```
 
@@ -56,11 +52,15 @@ func main() {
 ## Docker
 
 ```shell
-docker build -t="jaronnie/julenkv:v0.1.1" .
-docker run --name=julenkv -itd -p 5200:5200 jaronnie/julenkv:v0.1.1
+docker build -t="jaronnie/julenkv:v0.2" .
+docker run --name=julenkv -itd -p 5200:5200 jaronnie/julenkv:v0.2
 docker exec -it julenkv sh
-./bin/julenkv-cli set hello world
-./bin/julenkv-cli get hello 
+./bin/julenkv-cli
+
+julenkv-cli> set hello world 
+ok
+julenkv-cli> get hello
+world
 ```
 
 ## logs
@@ -69,6 +69,7 @@ Read more information on [logs.md](logs.md)
 
 * release v0.1 version on 2021.5.25
 * release v0.1.1 version on 2021.5.27
+* release v0.2 version on 2021.5.28
 
 ## License
 
