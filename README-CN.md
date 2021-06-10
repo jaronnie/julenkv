@@ -49,9 +49,10 @@ func main() {
 
 ```shell
 docker build -t="jaronnie/julenkv:v0.3" .
-docker run --name=julenkv -itd -p 5200:5200 jaronnie/julenkv:v0.2
+docker run --name=julenkv -itd -p 5200:5200 jaronnie/julenkv:v0.3
 docker exec -it julenkv sh
-./bin/julenkv-cli
+
+$ julenkv-cli
 
 julenkv-cli> set hello world 
 ok
