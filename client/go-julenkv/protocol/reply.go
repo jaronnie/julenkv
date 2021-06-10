@@ -85,7 +85,7 @@ func doMultiBulkReply(reply []byte) (interface{}, error) {
 	replylen := len(replyStrs)
 	replyStrs = replyStrs[1 : replylen-1]
 
-	r := []interface{}{}
+	var r []interface{}
 	for i := 0; i < replylen-1; i++ {
 		if i%2 == 1 {
 			rv := strings.Join([]string{
@@ -116,4 +116,3 @@ func getFlagPos(flag byte, reply []byte) int {
 
 	return pos
 }
-

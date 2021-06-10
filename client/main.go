@@ -7,7 +7,7 @@ import (
 	"os"
 	"strings"
 
-	julenkv "github.com/jaronnie/julenkv/client/go-julenkv"
+	"github.com/jaronnie/julenkv/client/go-julenkv"
 )
 
 
@@ -21,7 +21,7 @@ func main() {
 		printHeader()
 		input, _ := reader.ReadString('\n')
 		cmd := formatInput(input)
-		reply, err := julenkv.Do(conn, cmd...)
+		reply, err := conn.Do(cmd...)
 		if err != nil {
 			fmt.Println(err)
 		} else {
