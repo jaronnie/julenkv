@@ -1,5 +1,9 @@
 # julenkv logs
 
+* v0.3
+
+  > fixed some output
+
 * v0.2
 
   > improve the overall framework.
