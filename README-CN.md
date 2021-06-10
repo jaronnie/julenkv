@@ -48,7 +48,7 @@ func main() {
 ## Docker
 
 ```shell
-docker build -t="jaronnie/julenkv:v0.2" .
+docker build -t="jaronnie/julenkv:v0.3" .
 docker run --name=julenkv -itd -p 5200:5200 jaronnie/julenkv:v0.2
 docker exec -it julenkv sh
 ./bin/julenkv-cli
@@ -66,6 +66,7 @@ world
 * 2021.5.25 发布 v0.1 版本 
 * 2021.5.27 发布 v0.1.1 版本
 * 2021.5.28 发布 v0.2 版本
+* 2021.6.10 发布 v0.3 版本
 
 ## License
 

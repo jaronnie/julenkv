@@ -50,7 +50,7 @@ func main() {
 ## Docker
 
 ```shell
-docker build -t="jaronnie/julenkv:v0.2" .
+docker build -t="jaronnie/julenkv:v0.3" .
 docker run --name=julenkv -itd -p 5200:5200 jaronnie/julenkv:v0.2
 docker exec -it julenkv sh
 ./bin/julenkv-cli
@@ -68,6 +68,7 @@ Read more information on [logs.md](logs.md)
 * release v0.1 version on 2021.5.25
 * release v0.1.1 version on 2021.5.27
 * release v0.2 version on 2021.5.28
+* release v0.3 version on 2021.6.10
 
 ## License
 
