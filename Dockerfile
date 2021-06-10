@@ -11,11 +11,7 @@ WORKDIR /build
 
 COPY . .
 
-RUN go mod tidy
-
-RUN go build -o bin/julenkv-server main.go
-
-RUN go build -o bin/julenkv-cli client/main.go
+RUN go mod tidy && go build -o bin/julenkv-server main.go && go build -o bin/julenkv-cli client/main.go
 
 WORKDIR /dist
 
@@ -23,4 +19,4 @@ RUN cp -r /build/bin .
 
 EXPOSE 5200
 
-CMD ["/dist/bin/julenkv-server"]
+ENTRYPOINT ["julenkv-server"]
