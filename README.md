@@ -64,7 +64,7 @@ world
 
 ## logs
 
-Read more information on [logs.md](logs.md)
+Read more information on [changelogs.md](changelogs.md)
 
 * release v0.1 version on 2021.5.25
 * release v0.1.1 version on 2021.5.27

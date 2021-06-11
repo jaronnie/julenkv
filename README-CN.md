@@ -62,7 +62,7 @@ world
 
 ## 更新记录
 
-请在[logs.md](logs.md)上查看更多的信息。
+请在[changelogs.md](changelogs.md)上查看更多的信息。
 
 * 2021.5.25 发布 v0.1 版本 
 * 2021.5.27 发布 v0.1.1 版本
